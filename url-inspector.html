@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Inspector - PhishShield</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>PhishShield</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="url-inspector.html" class="active">URL Inspector</a></li>
+                <li><a href="email-analyzer.html">Email Analyzer</a></li>
+                <li><a href="quiz.html">Security Quiz</a></li>
+                <li><a href="education.html">Education Hub</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-sun"></i>
+            </div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="url-inspector-container">
+        <section class="tool-header">
+            <h2><i class="fas fa-link"></i> URL Inspector</h2>
+            <p>Analyze URLs for phishing threats and security risks</p>
+        </section>
+
+        <section class="url-input-section">
+            <div class="input-container">
+                <input type="text" id="url-input" placeholder="Enter a URL to analyze (e.g., https://example.com)" required>
+                <button id="analyze-btn" class="btn primary-btn">Analyze URL</button>
+            </div>
+            <div class="examples">
+                <p>Examples: <span class="example-url">https://login.microsoftonline.com</span>, <span class="example-url">https://paypal.com</span></p>
+            </div>
+        </section>
+
+        <section class="loading-section" id="loading-section">
+            <div class="loader"></div>
+            <p>Analyzing URL security...</p>
+            <ul class="analysis-steps">
+                <li class="step">Checking domain reputation <span class="step-status"></span></li>
+                <li class="step">Verifying SSL certificate <span class="step-status"></span></li>
+                <li class="step">Analyzing redirect chains <span class="step-status"></span></li>
+                <li class="step">Checking phishing databases <span class="step-status"></span></li>
+                <li class="step">Analyzing URL structure <span class="step-status"></span></li>
+            </ul>
+        </section>
+
+        <section class="results-section" id="results-section">
+            <div class="results-header">
+                <div class="url-display">
+                    <h3>Analysis Results for:</h3>
+                    <p id="analyzed-url" class="analyzed-url">https://example.com</p>
+                </div>
+                <div class="risk-score">
+                    <div class="score-circle">
+                        <span id="risk-score-value">85</span>
+                    </div>
+                    <p>Risk Score</p>
+                </div>
+            </div>
+
+            <div class="risk-summary">
+                <div class="risk-level">
+                    <h4>Risk Level:</h4>
+                    <span id="risk-level" class="high-risk">High Risk</span>
+                </div>
+                <div class="risk-recommendation">
+                    <h4>Recommendation:</h4>
+                    <p id="recommendation">This URL shows multiple signs of being a phishing attempt. We strongly recommend avoiding this website.</p>
+                </div>
+            </div>
+
+            <div class="detailed-results">
+                <h3>Detailed Analysis</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h4>Domain Information</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="result-item">
+                                <span class="label">Domain Age:</span>
+                                <span id="domain-age" class="value">3 days</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Domain Reputation:</span>
+                                <span id="domain-reputation" class="value">Poor</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Registered Owner:</span>
+                                <span id="registered-owner" class="value">Hidden / Private</span>
+                                <span class="indicator warning"><i class="fas fa-exclamation-triangle"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h4>SSL Certificate</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="result-item">
+                                <span class="label">SSL Enabled:</span>
+                                <span id="ssl-enabled" class="value">Yes</span>
+                                <span class="indicator success"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Certificate Issuer:</span>
+                                <span id="certificate-issuer" class="value">Let's Encrypt</span>
+                                <span class="indicator success"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Certificate Expiry:</span>
+                                <span id="certificate-expiry" class="value">Valid (Expires in 60 days)</span>
+                                <span class="indicator success"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h4>URL Structure Analysis</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="result-item">
+                                <span class="label">Suspicious Keywords:</span>
+                                <span id="suspicious-keywords" class="value">login, secure, account, verify</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">URL Length:</span>
+                                <span id="url-length" class="value">Excessive (128 characters)</span>
+                                <span class="indicator warning"><i class="fas fa-exclamation-triangle"></i></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Special Characters:</span>
+                                <span id="special-chars" class="value">Excessive use of '@', '-', numbers</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h4>Redirect Analysis</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="result-item">
+                                <span class="label">Redirect Count:</span>
+                                <span id="redirect-count" class="value">3 redirects</span>
+                                <span class="indicator warning"><i class="fas fa-exclamation-triangle"></i></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Final Destination:</span>
+                                <span id="final-destination" class="value">Different from initial URL</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h4>Database Checks</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="result-item">
+                                <span class="label">Google Safe Browsing:</span>
+                                <span id="safe-browsing" class="value">Flagged as Suspicious</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">PhishTank Database:</span>
+                                <span id="phishtank" class="value">Not Listed</span>
+                                <span class="indicator success"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Community Reports:</span>
+                                <span id="community-reports" class="value">2 reports in last 24 hours</span>
+                                <span class="indicator warning"><i class="fas fa-exclamation-triangle"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-actions">
+                <button id="analyze-new" class="btn primary-btn"><i class="fas fa-search"></i> Analyze New URL</button>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <h3>How to Stay Safe Online</h3>
+            <div class="tips-container">
+                <div class="tip">
+                    <i class="fas fa-check-double"></i>
+                    <p>Always verify the URL in your browser's address bar before entering sensitive information.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-lock"></i>
+                    <p>Look for HTTPS and a padlock icon, but remember that even phishing sites can use SSL certificates.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-mouse-pointer"></i>
+                    <p>Hover over links before clicking to see the actual destination URL.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-shield-alt"></i>
+                    <p>Use PhishShield's URL Inspector whenever you're unsure about a link's safety.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-shield-alt"></i>
+                <h3>PhishShield</h3>
+                <p>Protecting you from cyber threats</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="url-inspector.html">URL Inspector</a></li>
+                    <li><a href="email-analyzer.html">Email Analyzer</a></li>
+                    <li><a href="quiz.html">Security Quiz</a></li>
+                    <li><a href="education.html">Education Hub</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="https://github.com/username/phishshield" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PhishShield. All rights reserved.</p>
+            <p>Disclaimer: This tool is for educational purposes only.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/url-inspector.js"></script>
+</body>
+</html>

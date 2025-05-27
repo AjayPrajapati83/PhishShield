@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Analyzer - PhishShield</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>PhishShield</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="url-inspector.html">URL Inspector</a></li>
+                <li><a href="email-analyzer.html" class="active">Email Analyzer</a></li>
+                <li><a href="quiz.html">Security Quiz</a></li>
+                <li><a href="education.html">Education Hub</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-sun"></i>
+            </div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="email-analyzer-container">
+        <section class="page-header">
+            <h2>Email Analyzer</h2>
+            <p>Examine email headers and content to detect phishing attempts</p>
+        </section>
+
+        <div class="analyzer-wrapper">
+            <section class="tab-section">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="headers"><i class="fas fa-envelope-open-text"></i> Email Headers</button>
+                    <button class="tab-btn" data-tab="content"><i class="fas fa-align-left"></i> Email Content</button>
+                    <button class="tab-btn" data-tab="both"><i class="fas fa-envelope"></i> Full Email</button>
+                </div>
+            </section>
+
+            <section class="analyzer-content-wrapper">
+                <div class="input-panel">
+                    <div id="headers-tab" class="tab-content active">
+                        <div class="input-header">
+                            <h3><i class="fas fa-envelope-open-text"></i> Paste Email Headers</h3>
+                            <p class="input-description">Email headers contain technical information that can reveal signs of spoofing or phishing.</p>
+                        </div>
+                        <div class="input-area">
+                            <textarea id="headers-input" placeholder="Paste email headers here (e.g., Received: from, Return-Path:, etc.)"></textarea>
+                            <div class="sample-header">
+                                <button id="show-sample-headers" class="btn secondary-outline-btn"><i class="fas fa-file-alt"></i> Show sample headers</button>
+                                <div id="sample-headers" class="sample-content">
+                                    <pre>Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
+    by mx.example.com (Postfix) with ESMTPS id 7DBCF1234
+    for &lt;recipient@example.com&gt;; Wed, 27 May 2025 10:06:19 -0700 (PDT)
+Received: by mail-wr1-f51.google.com with SMTP id a16so1234567wra.0
+    for &lt;recipient@example.com&gt;; Wed, 27 May 2025 10:06:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+    h=mime-version:from:date:message-id:subject:to;
+    bh=ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklm=;
+    b=ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz
+Return-Path: &lt;sender@gmail.com&gt;
+From: "John Doe" &lt;sender@gmail.com&gt;
+To: "Jane Smith" &lt;recipient@example.com&gt;
+Subject: Important Account Information
+Date: Wed, 27 May 2025 10:06:19 -0700</pre>
+                                    <button id="use-sample-headers" class="btn secondary-btn">Use this sample</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="content-tab" class="tab-content">
+                        <div class="input-header">
+                            <h3><i class="fas fa-file-alt"></i> Paste Email Content</h3>
+                            <p class="input-description">Email body content can contain suspicious links, urgent language, and other phishing indicators.</p>
+                        </div>
+                        <div class="input-area">
+                            <textarea id="content-input" placeholder="Paste the email body content here..."></textarea>
+                            <div class="sample-content-btn">
+                                <button id="show-sample-content" class="btn secondary-outline-btn"><i class="fas fa-file-alt"></i> Show sample content</button>
+                                <div id="sample-content" class="sample-content">
+                                    <pre>Dear Valued Customer,
+
+We have detected suspicious activity on your account. Your account has been temporarily limited until we can verify your information.
+
+Please click on the link below to verify your identity and restore full access to your account:
+https://secure-account-verification.com/verify?id=12345
+
+If you do not verify your account within 24 hours, your account will be permanently suspended.
+
+Thank you for your cooperation,
+Security Team</pre>
+                                    <button id="use-sample-content" class="btn secondary-btn">Use this sample</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="both-tab" class="tab-content">
+                        <div class="input-header">
+                            <h3><i class="fas fa-envelope"></i> Paste Full Email (Headers & Content)</h3>
+                            <p class="input-description">For the most comprehensive analysis, paste the complete email including headers and body content.</p>
+                        </div>
+                        <div class="input-area">
+                            <textarea id="full-email-input" placeholder="Paste the complete email here (headers and body content)..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analyze-btn-container">
+                    <button id="analyze-email-btn" class="btn primary-btn">
+                        <i class="fas fa-search"></i>
+                        <span>Analyze Email</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="loading-section" id="email-loading-section">
+            <div class="loader"></div>
+            <p>Analyzing email for phishing indicators...</p>
+            <ul class="analysis-steps">
+                <li class="step">Checking sender authentication (SPF/DKIM/DMARC) <span class="step-status"></span></li>
+                <li class="step">Analyzing sender domain <span class="step-status"></span></li>
+                <li class="step">Scanning for suspicious links <span class="step-status"></span></li>
+                <li class="step">Checking for urgency indicators <span class="step-status"></span></li>
+                <li class="step">Analyzing content for phishing patterns <span class="step-status"></span></li>
+            </ul>
+        </section>
+
+        <section class="results-section" id="email-results-section">
+            <div class="results-header">
+                <div class="email-subject">
+                    <h3>Analysis Results for:</h3>
+                    <p id="analyzed-subject" class="analyzed-subject">"Important Account Information"</p>
+                </div>
+                <div class="risk-score">
+                    <div class="score-circle">
+                        <span id="email-risk-score">92</span>
+                    </div>
+                    <p>Phishing Score</p>
+                </div>
+            </div>
+
+            <div class="risk-summary">
+                <div class="risk-level">
+                    <h4>Risk Assessment:</h4>
+                    <span id="email-risk-level" class="high-risk">High Risk - Likely Phishing</span>
+                </div>
+                <div class="risk-recommendation">
+                    <h4>Recommendation:</h4>
+                    <p id="email-recommendation">This email shows strong indicators of being a phishing attempt. Do not click any links or provide any information.</p>
+                </div>
+            </div>
+
+            <div class="detailed-results">
+                <h3>Detailed Analysis</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h4>Authentication Results</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="result-item">
+                                <span class="label">SPF:</span>
+                                <span id="spf-result" class="value">Failed</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                                <div class="explanation">
+                                    <p>The sender's IP address is not authorized to send email on behalf of the displayed domain.</p>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">DKIM:</span>
+                                <span id="dkim-result" class="value">Failed</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                                <div class="explanation">
+                                    <p>Email signature verification failed, suggesting the email may have been tampered with.</p>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">DMARC:</span>
+                                <span id="dmarc-result" class="value">Not Implemented</span>
+                                <span class="indicator warning"><i class="fas fa-exclamation-triangle"></i></span>
+                                <div class="explanation">
+                                    <p>The sender's domain does not have DMARC protection configured.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h4>Sender Analysis</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="result-item">
+                                <span class="label">Display Name vs. Email:</span>
+                                <span id="display-name-result" class="value">Mismatch</span>
+                                <span class="indicator warning"><i class="fas fa-exclamation-triangle"></i></span>
+                                <div class="explanation">
+                                    <p>The display name "Security Team" doesn't match the actual email address "random-sender@gmail.com".</p>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Domain Age:</span>
+                                <span id="domain-age-result" class="value">Recently Created (5 days)</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                                <div class="explanation">
+                                    <p>The sender's domain was created very recently, which is suspicious for business communications.</p>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Reply-To Address:</span>
+                                <span id="reply-to-result" class="value">Different from sender</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                                <div class="explanation">
+                                    <p>The Reply-To address differs from the From address, a common phishing tactic.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h4>Content Analysis</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="result-item">
+                                <span class="label">Urgency Language:</span>
+                                <span id="urgency-result" class="value">High (4 indicators)</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                                <div class="explanation">
+                                    <p>Found urgent phrases: "immediately", "24 hours", "suspended", "required"</p>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Suspicious Keywords:</span>
+                                <span id="keywords-result" class="value">Multiple Found</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                                <div class="explanation">
+                                    <p>Found suspicious keywords: "verify", "account", "suspicious activity", "click link"</p>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Grammar & Spelling:</span>
+                                <span id="grammar-result" class="value">Minor Issues</span>
+                                <span class="indicator warning"><i class="fas fa-exclamation-triangle"></i></span>
+                                <div class="explanation">
+                                    <p>Some grammatical errors and awkward phrasing detected, common in phishing emails.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h4>Link Analysis</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="result-item">
+                                <span class="label">Suspicious URLs:</span>
+                                <span id="urls-result" class="value">1 found</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                                <div class="explanation">
+                                    <p>Found suspicious URL: https://secure-account-verification.com/verify?id=12345</p>
+                                    <p>This URL uses deceptive domain naming to appear legitimate.</p>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">URL Redirect:</span>
+                                <span id="redirect-result" class="value">Multiple redirects detected</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                                <div class="explanation">
+                                    <p>The link redirects through multiple domains before reaching its destination.</p>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Link/Text Mismatch:</span>
+                                <span id="link-text-result" class="value">Detected</span>
+                                <span class="indicator danger"><i class="fas fa-times-circle"></i></span>
+                                <div class="explanation">
+                                    <p>The visible link text doesn't match the actual URL destination.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h4>Attachments</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="result-item">
+                                <span class="label">Suspicious Attachments:</span>
+                                <span id="attachments-result" class="value">None detected</span>
+                                <span class="indicator success"><i class="fas fa-check-circle"></i></span>
+                                <div class="explanation">
+                                    <p>No suspicious attachments were found in this email.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlighted-email">
+                <h3>Highlighted Email Content</h3>
+                <div class="email-preview" id="highlighted-content">
+                    <p>Dear Valued Customer,</p>
+                    <p>We have detected <span class="highlight danger">suspicious activity</span> on your account. Your account has been <span class="highlight danger">temporarily limited</span> until we can <span class="highlight danger">verify your information</span>.</p>
+                    <p>Please <span class="highlight danger">click on the link below</span> to verify your identity and restore full access to your account:</p>
+                    <p><a href="#" class="highlight danger">https://secure-account-verification.com/verify?id=12345</a></p>
+                    <p>If you do not verify your account <span class="highlight danger">within 24 hours</span>, your account will be <span class="highlight danger">permanently suspended</span>.</p>
+                    <p>Thank you for your cooperation,<br>
+                    Security Team</p>
+                </div>
+            </div>
+
+            <div class="results-actions">
+                <button id="analyze-new-email" class="btn primary-btn"><i class="fas fa-search"></i> Analyze New Email</button>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <h3>How to Identify Phishing Emails</h3>
+            <div class="tips-container">
+                <div class="tip">
+                    <i class="fas fa-user-check"></i>
+                    <p>Verify the sender's email address carefully, not just the display name.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-link"></i>
+                    <p>Hover over links before clicking to see the actual destination URL.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Be suspicious of urgent requests or threats to close your account.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-spell-check"></i>
+                    <p>Watch for poor grammar, spelling errors, or unusual phrasing.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-shield-alt"></i>
+                <h3>PhishShield</h3>
+                <p>Protecting you from cyber threats</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="url-inspector.html">URL Inspector</a></li>
+                    <li><a href="email-analyzer.html">Email Analyzer</a></li>
+                    <li><a href="quiz.html">Security Quiz</a></li>
+                    <li><a href="education.html">Education Hub</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="https://github.com/username/phishshield" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PhishShield. All rights reserved.</p>
+            <p>Disclaimer: This tool is for educational purposes only.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/email-analyzer.js"></script>
+</body>
+</html>

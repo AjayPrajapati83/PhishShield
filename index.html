@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishShield - Cybersecurity Protection</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div id="particles-js" class="particles-container"></div>
+    
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>PhishShield</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="url-inspector.html">URL Inspector</a></li>
+                <li><a href="email-analyzer.html">Email Analyzer</a></li>
+                <li><a href="quiz.html">Security Quiz</a></li>
+                <li><a href="education.html">Education Hub</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-sun"></i>
+            </div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Protect Yourself from Phishing Attacks</h2>
+                <p>PhishShield provides powerful tools to analyze suspicious URLs, emails, and improve your cybersecurity knowledge.</p>
+                <div class="cta-buttons">
+                    <a href="#features" class="btn primary-btn">Explore Features</a>
+                    <a href="education.html" class="btn secondary-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/shield-animation.svg" alt="Cybersecurity Shield">
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <h2>Our Protection Tools</h2>
+            <div class="feature-cards">
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-link"></i>
+                    <h3>URL Inspector</h3>
+                    <p>Analyze URLs for phishing threats, check domain reputation, and verify SSL certificates.</p>
+                    <a href="url-inspector.html" class="feature-link">Inspect URL <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Analyzer</h3>
+                    <p>Examine email headers and content to detect phishing attempts and security risks.</p>
+                    <a href="email-analyzer.html" class="feature-link">Analyze Email <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>Security Quiz</h3>
+                    <p>Test your knowledge with interactive quizzes on phishing and cybersecurity best practices.</p>
+                    <a href="quiz.html" class="feature-link">Take Quiz <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-book"></i>
+                    <h3>Education Hub</h3>
+                    <p>Access comprehensive resources to learn about phishing threats and protection strategies.</p>
+                    <a href="education.html" class="feature-link">Learn Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <h2>Phishing Threat Statistics</h2>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="83">0</div>
+                    <p>Percent of organizations that experienced phishing attacks in 2024</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="3.4">0</div>
+                    <p>Billion phishing emails sent daily worldwide</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="65">0</div>
+                    <p>Percent of cyber attacks that begin with a phishing email</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-shield-alt"></i>
+                <h3>PhishShield</h3>
+                <p>Protecting you from cyber threats</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="url-inspector.html">URL Inspector</a></li>
+                    <li><a href="email-analyzer.html">Email Analyzer</a></li>
+                    <li><a href="quiz.html">Security Quiz</a></li>
+                    <li><a href="education.html">Education Hub</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="https://github.com/username/phishshield" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PhishShield. All rights reserved.</p>
+            <p>Disclaimer: This tool is for educational purposes only.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

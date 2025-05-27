@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Hub - PhishShield</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>PhishShield</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="url-inspector.html">URL Inspector</a></li>
+                <li><a href="email-analyzer.html">Email Analyzer</a></li>
+                <li><a href="quiz.html">Security Quiz</a></li>
+                <li><a href="education.html" class="active">Education Hub</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-sun"></i>
+            </div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="education-container">
+        <section class="tool-header">
+            <h2><i class="fas fa-book"></i> Education Hub</h2>
+            <p>Learn about phishing threats and cybersecurity best practices</p>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search topics...">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+        </section>
+
+        <section class="education-intro">
+            <div class="intro-content">
+                <h3>Cybersecurity Knowledge Center</h3>
+                <p>Welcome to our comprehensive resource hub for learning about phishing threats and cybersecurity best practices. Browse through our expertly curated topics to enhance your security awareness and protect yourself online.</p>
+                <div class="prevention-strategies">
+                    <h4>Essential Prevention Strategies</h4>
+                    <div class="strategies-grid">
+                        <div class="strategy-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h5>Use Strong Authentication</h5>
+                            <p>Enable multi-factor authentication on all accounts and use unique, complex passwords with a password manager.</p>
+                        </div>
+                        <div class="strategy-card">
+                            <i class="fas fa-envelope-open-text"></i>
+                            <h5>Verify Email Sources</h5>
+                            <p>Always check sender addresses carefully and hover over links before clicking to verify their destination.</p>
+                        </div>
+                        <div class="strategy-card">
+                            <i class="fas fa-laptop-code"></i>
+                            <h5>Keep Systems Updated</h5>
+                            <p>Regularly update your operating system, browsers, and security software to protect against vulnerabilities.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="protection-checklist-section">
+                    <h4>Phishing Protection Checklist</h4>
+                    <div class="checklist-container">
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="checklist-content">
+                                <h5>Verify Sender Identity</h5>
+                                <p>Check the email address carefully, not just the display name. Look for subtle misspellings or domain variations.</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="checklist-content">
+                                <h5>Inspect Links Before Clicking</h5>
+                                <p>Hover over links to see the actual URL. Never click on suspicious or unexpected links, especially those asking for credentials.</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="checklist-content">
+                                <h5>Be Wary of Urgent Requests</h5>
+                                <p>Phishing attempts often create a false sense of urgency. Take time to verify requests through official channels.</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="checklist-content">
+                                <h5>Report Suspicious Messages</h5>
+                                <p>If you receive a suspected phishing message, report it to your IT department or the appropriate authorities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="education-content">
+            <div class="education-sidebar">
+                <h3>Topics</h3>
+                <ul class="topic-list">
+                    <li class="active" data-topic="what-is-phishing">What is Phishing?</li>
+                    <li data-topic="common-attacks">Common Attack Types</li>
+                    <li data-topic="spot-phishing">How to Spot Phishing</li>
+                    <li data-topic="best-practices">Best Practices</li>
+                    <li data-topic="resources">Additional Resources</li>
+                </ul>
+            </div>
+
+            <div class="education-main">
+                <div class="topic-content active" id="what-is-phishing">
+                    <h3>What is Phishing?</h3>
+                    <div class="topic-intro">
+                        <p>Phishing is a type of social engineering attack often used to steal user data, including login credentials and credit card numbers. It occurs when an attacker, masquerading as a trusted entity, dupes a victim into opening an email, instant message, or text message.</p>
+                        <div class="topic-image">
+                            <img src="assets/images/phishing-diagram.svg" alt="Phishing Attack Diagram">
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>How Phishing Works</h4>
+                        <p>Phishing attacks typically follow a common pattern:</p>
+                        <ol class="numbered-list">
+                            <li>
+                                <strong>Impersonation:</strong> Attackers pose as trusted organizations or individuals.
+                            </li>
+                            <li>
+                                <strong>Contact:</strong> They reach out via email, text, phone, or social media.
+                            </li>
+                            <li>
+                                <strong>Deception:</strong> They create a sense of urgency or curiosity to manipulate victims.
+                            </li>
+                            <li>
+                                <strong>Harvesting:</strong> They collect sensitive information through fake websites or malware.
+                            </li>
+                            <li>
+                                <strong>Exploitation:</strong> They use the stolen information for financial gain or further attacks.
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>The Impact of Phishing</h4>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-value">$17,700</div>
+                                <div class="stat-description">Average loss per business email compromise incident</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">65%</div>
+                                <div class="stat-description">Of U.S. organizations experienced successful phishing attacks in 2023</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">96%</div>
+                                <div class="stat-description">Of phishing attacks arrive by email</div>
+                            </div>
+                        </div>
+                        <p>Beyond financial losses, phishing can lead to data breaches, identity theft, ransomware infections, and damage to organizational reputation.</p>
+                    </div>
+
+                    <div class="key-prevention-section">
+                        <h4>Key Prevention Strategies</h4>
+                        <div class="prevention-grid">
+                            <div class="prevention-card">
+                                <div class="prevention-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h5>Use Multi-Factor Authentication</h5>
+                                <p>Enable MFA wherever possible to add an extra layer of security beyond just passwords. Even if credentials are phished, attackers won't have the second verification factor.</p>
+                            </div>
+                            <div class="prevention-card">
+                                <div class="prevention-icon">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <h5>Security Awareness Training</h5>
+                                <p>Regular training helps users identify and report phishing attempts. Simulated phishing exercises can test and improve awareness.</p>
+                            </div>
+                            <div class="prevention-card">
+                                <div class="prevention-icon">
+                                    <i class="fas fa-envelope-open-text"></i>
+                                </div>
+                                <h5>Email Filtering Solutions</h5>
+                                <p>Implement robust email security gateways that can detect and quarantine suspicious messages before they reach users' inboxes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-content" id="common-attacks">
+                    <h3>Common Phishing Attack Types</h3>
+                    <div class="topic-intro">
+                        <p>Phishing attacks come in many forms, each with unique characteristics and targeting methods. Understanding these variants helps in recognizing and defending against them.</p>
+                    </div>
+
+                    <div class="attack-types">
+                        <div class="attack-card">
+                            <div class="attack-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>Email Phishing</h4>
+                            <p>The most common type where attackers send fraudulent emails purporting to be from reputable companies to induce individuals to reveal personal information.</p>
+                            <div class="attack-example">
+                                <h5>Example:</h5>
+                                <p>Emails claiming to be from your bank asking you to "verify your account" by clicking a link and entering your credentials.</p>
+                            </div>
+                        </div>
+
+                        <div class="attack-card">
+                            <div class="attack-icon">
+                                <i class="fas fa-fishing-rod"></i>
+                            </div>
+                            <h4>Spear Phishing</h4>
+                            <p>Targeted attacks directed at specific individuals or companies, often using personalized information to appear more legitimate.</p>
+                            <div class="attack-example">
+                                <h5>Example:</h5>
+                                <p>An email appearing to come from your CEO asking for an urgent wire transfer, using information gleaned from social media.</p>
+                            </div>
+                        </div>
+
+                        <div class="attack-card">
+                            <div class="attack-icon">
+                                <i class="fas fa-whale"></i>
+                            </div>
+                            <h4>Whaling</h4>
+                            <p>A form of spear phishing specifically targeting high-profile executives or other high-value targets within a business.</p>
+                            <div class="attack-example">
+                                <h5>Example:</h5>
+                                <p>Sophisticated attacks targeting C-suite executives with highly personalized content about company acquisitions or legal matters.</p>
+                            </div>
+                        </div>
+
+                        <div class="attack-card">
+                            <div class="attack-icon">
+                                <i class="fas fa-clone"></i>
+                            </div>
+                            <h4>Clone Phishing</h4>
+                            <p>Attackers create a nearly identical copy of a legitimate email with malicious links or attachments.</p>
+                            <div class="attack-example">
+                                <h5>Example:</h5>
+                                <p>A duplicate of a previous legitimate email you received, claiming to have "updated attachments" but containing malware.</p>
+                            </div>
+                        </div>
+
+                        <div class="attack-card">
+                            <div class="attack-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4>Smishing (SMS Phishing)</h4>
+                            <p>Phishing conducted via SMS text messages rather than email.</p>
+                            <div class="attack-example">
+                                <h5>Example:</h5>
+                                <p>Text messages claiming to be from your bank about suspicious activity, asking you to call a fraudulent number or click a malicious link.</p>
+                            </div>
+                        </div>
+
+                        <div class="attack-card">
+                            <div class="attack-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h4>Vishing (Voice Phishing)</h4>
+                            <p>Phishing conducted via phone calls, where attackers impersonate legitimate organizations.</p>
+                            <div class="attack-example">
+                                <h5>Example:</h5>
+                                <p>Calls claiming to be from technical support, the IRS, or your credit card company requesting personal information or payments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-content" id="spot-phishing">
+                    <h3>How to Spot Phishing</h3>
+                    <div class="topic-intro">
+                        <p>Learning to identify phishing attempts is a critical skill in today's digital world. By recognizing the warning signs, you can protect yourself from becoming a victim of these increasingly sophisticated attacks.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Red Flags in Emails</h4>
+                        <ul>
+                            <li><strong>Urgent or threatening language:</strong> Phishing emails often create a sense of urgency or fear to pressure you into acting quickly without thinking.</li>
+                            <li><strong>Generic greetings:</strong> Instead of using your name, phishing emails often use generic terms like "Dear Customer" or "Dear User."</li>
+                            <li><strong>Spelling and grammar errors:</strong> Professional organizations typically proofread their communications. Multiple errors may indicate a phishing attempt.</li>
+                            <li><strong>Mismatched or suspicious URLs:</strong> Hover over links (don't click) to see if the destination matches what's expected. Look for slight misspellings or different domains.</li>
+                            <li><strong>Requests for sensitive information:</strong> Legitimate organizations rarely ask for personal information via email.</li>
+                            <li><strong>Suspicious attachments:</strong> Unexpected attachments, especially with extensions like .exe, .zip, or .scr, may contain malware.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Suspicious URL Characteristics</h4>
+                        <ul>
+                            <li><strong>Misspelled domain names:</strong> Like "amaz0n.com" or "paypa1.com" instead of legitimate domains.</li>
+                            <li><strong>Excessive subdomains:</strong> For example, "security.account.update.domain.com".</li>
+                            <li><strong>HTTP instead of HTTPS:</strong> Legitimate sites typically use secure connections (https://).</li>
+                            <li><strong>URL shorteners:</strong> These can hide the actual destination of a link.</li>
+                            <li><strong>Strange or unexpected domains:</strong> If you're expecting a link from your bank but the domain is unfamiliar.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Verification Techniques</h4>
+                        <ul>
+                            <li><strong>Contact the sender directly:</strong> Use official contact information (not what's in the suspicious message) to verify if the communication is legitimate.</li>
+                            <li><strong>Check the email header:</strong> Examine the full email header to verify the actual sender.</li>
+                            <li><strong>Use PhishShield's tools:</strong> Our URL Inspector and Email Analyzer can help identify potential threats.</li>
+                            <li><strong>Visit websites directly:</strong> Instead of clicking links, manually type the official URL in your browser.</li>
+                            <li><strong>Use multi-factor authentication:</strong> This provides an extra layer of security even if your credentials are compromised.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="topic-content" id="best-practices">
+                    <h3>Best Practices</h3>
+                    <div class="topic-intro">
+                        <p>Protecting yourself from phishing attacks requires a combination of awareness, caution, and good security habits. Following these best practices can significantly reduce your risk of falling victim to phishing attempts.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Email Security Practices</h4>
+                        <ul>
+                            <li><strong>Be skeptical of unsolicited emails:</strong> If you weren't expecting an email, be extra cautious.</li>
+                            <li><strong>Never click suspicious links:</strong> Hover over links to see the actual URL before clicking.</li>
+                            <li><strong>Don't download unexpected attachments:</strong> Verify with the sender through another channel first.</li>
+                            <li><strong>Check the sender's email address:</strong> Look carefully at the domain (after @) to ensure it's legitimate.</li>
+                            <li><strong>Use email filtering:</strong> Enable spam filters and security features in your email client.</li>
+                            <li><strong>Report phishing attempts:</strong> Use the reporting features in your email client to flag suspicious messages.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Account Security</h4>
+                        <ul>
+                            <li><strong>Use strong, unique passwords:</strong> Create complex passwords that are different for each account.</li>
+                            <li><strong>Enable multi-factor authentication (MFA):</strong> Add an extra layer of security beyond just passwords.</li>
+                            <li><strong>Regularly update passwords:</strong> Change passwords periodically, especially for sensitive accounts.</li>
+                            <li><strong>Use a password manager:</strong> This helps manage complex passwords securely.</li>
+                            <li><strong>Monitor your accounts:</strong> Regularly check for unauthorized activity.</li>
+                            <li><strong>Be cautious with security questions:</strong> Don't use answers that can be easily found on social media.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>General Online Safety</h4>
+                        <ul>
+                            <li><strong>Keep software updated:</strong> Install security patches and updates promptly.</li>
+                            <li><strong>Use antivirus/anti-malware software:</strong> Keep it updated and run regular scans.</li>
+                            <li><strong>Be careful what you share online:</strong> Limit personal information on social media.</li>
+                            <li><strong>Verify website security:</strong> Look for HTTPS and the padlock icon in your browser.</li>
+                            <li><strong>Use secure networks:</strong> Avoid conducting sensitive transactions on public Wi-Fi.</li>
+                            <li><strong>Educate yourself:</strong> Stay informed about the latest phishing techniques.</li>
+                            <li><strong>Trust your instincts:</strong> If something feels suspicious, it probably is.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>What to Do If You Suspect You've Been Phished</h4>
+                        <ol>
+                            <li><strong>Change your passwords immediately:</strong> Start with the affected account, then any others using similar credentials.</li>
+                            <li><strong>Contact the legitimate organization:</strong> Report the phishing attempt through official channels.</li>
+                            <li><strong>Monitor your accounts:</strong> Check for unauthorized transactions or activity.</li>
+                            <li><strong>Run a security scan:</strong> Check your device for malware or viruses.</li>
+                            <li><strong>Report the incident:</strong> File reports with relevant authorities like the FTC or IC3.</li>
+                            <li><strong>Consider credit monitoring:</strong> If financial information was compromised.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="topic-content" id="resources">
+                    <h3>Additional Resources</h3>
+                    <div class="topic-intro">
+                        <p>Staying informed about cybersecurity threats and best practices is an ongoing process. These additional resources can help you continue learning and keep your digital life secure.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Government & Official Resources</h4>
+                        <ul>
+                            <li><strong>CISA (Cybersecurity & Infrastructure Security Agency):</strong> Provides alerts, tips, and resources for cybersecurity awareness.</li>
+                            <li><strong>FTC (Federal Trade Commission):</strong> Offers consumer advice on avoiding scams and reporting fraud.</li>
+                            <li><strong>IC3 (Internet Crime Complaint Center):</strong> FBI's center for reporting internet crimes and scams.</li>
+                            <li><strong>NIST (National Institute of Standards and Technology):</strong> Provides cybersecurity frameworks and guidelines.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Educational Resources</h4>
+                        <ul>
+                            <li><strong>Cybersecurity Awareness Training:</strong> Many organizations offer free or low-cost training programs.</li>
+                            <li><strong>SANS Security Awareness:</strong> Provides free resources and tips for staying secure online.</li>
+                            <li><strong>Common Sense Media:</strong> Offers guidance for families and educators on digital literacy and safety.</li>
+                            <li><strong>Khan Academy:</strong> Provides free courses on internet safety and digital citizenship.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Tools & Services</h4>
+                        <ul>
+                            <li><strong>Have I Been Pwned:</strong> Check if your email has been involved in known data breaches.</li>
+                            <li><strong>VirusTotal:</strong> Analyze suspicious files and URLs for malware.</li>
+                            <li><strong>Password Managers:</strong> Tools like LastPass, 1Password, or Bitwarden for secure credential management.</li>
+                            <li><strong>Two-Factor Authentication Apps:</strong> Google Authenticator, Authy, or Microsoft Authenticator for added security.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>Stay Informed</h4>
+                        <ul>
+                            <li><strong>Cybersecurity News Sources:</strong> Krebs on Security, The Hacker News, Dark Reading.</li>
+                            <li><strong>Security Podcasts:</strong> Darknet Diaries, Security Now, Smashing Security.</li>
+                            <li><strong>Threat Intelligence:</strong> Follow security researchers and organizations on social media.</li>
+                            <li><strong>Community Forums:</strong> Reddit's r/cybersecurity, Stack Exchange Information Security.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h4>For Organizations</h4>
+                        <ul>
+                            <li><strong>Security Awareness Training:</strong> Resources for implementing training programs for employees.</li>
+                            <li><strong>Phishing Simulation Tools:</strong> Services that help test and train employees on phishing awareness.</li>
+                            <li><strong>Incident Response Planning:</strong> Frameworks and templates for creating response plans.</li>
+                            <li><strong>Security Policy Templates:</strong> Sample policies for organizations to adapt and implement.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-shield-alt"></i>
+                <h3>PhishShield</h3>
+                <p>Protecting you from cyber threats</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="url-inspector.html">URL Inspector</a></li>
+                    <li><a href="email-analyzer.html">Email Analyzer</a></li>
+                    <li><a href="quiz.html">Security Quiz</a></li>
+                    <li><a href="education.html">Education Hub</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="https://github.com/username/phishshield" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PhishShield. All rights reserved.</p>
+            <p>Disclaimer: This tool is for educational purposes only.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/education.js"></script>
+</body>
+</html>

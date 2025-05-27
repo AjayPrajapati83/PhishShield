@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Quiz - PhishShield</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>PhishShield</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="url-inspector.html">URL Inspector</a></li>
+                <li><a href="email-analyzer.html">Email Analyzer</a></li>
+                <li><a href="quiz.html" class="active">Security Quiz</a></li>
+                <li><a href="education.html">Education Hub</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-sun"></i>
+            </div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="quiz-container">
+        <section class="tool-header">
+            <h2><i class="fas fa-question-circle"></i> Cybersecurity Quiz</h2>
+            <p>Test your knowledge about phishing and cybersecurity</p>
+        </section>
+
+        <section class="quiz-intro" id="quiz-intro">
+            <h3>Test Your Cybersecurity Knowledge</h3>
+            <p>Challenge yourself with our interactive quiz to see how well you can identify phishing threats and protect your digital security.</p>
+            
+            <div class="quiz-categories">
+                <div class="category-card" data-category="phishing-basics">
+                    <div class="category-icon">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <h4>Phishing Basics</h4>
+                    <p>Test your knowledge of fundamental phishing concepts and attack types.</p>
+                    <div class="category-card-meta">
+                        <span class="difficulty">Beginner</span>
+                        <span class="questions">5 Questions</span>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="email-security">
+                    <div class="category-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <h4>Email Security</h4>
+                    <p>Identify email-based threats and learn how to protect your inbox.</p>
+                    <div class="category-card-meta">
+                        <span class="difficulty">Intermediate</span>
+                        <span class="questions">5 Questions</span>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="web-threats">
+                    <div class="category-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h4>URL & Web Threats</h4>
+                    <p>Learn to identify suspicious websites and URL-based attacks.</p>
+                    <div class="category-card-meta">
+                        <span class="difficulty">Advanced</span>
+                        <span class="questions">5 Questions</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quiz-instructions">
+                <h4><i class="fas fa-info-circle"></i> How It Works</h4>
+                <ul>
+                    <li>Select a category to begin</li>
+                    <li>Answer 5 multiple-choice questions</li>
+                    <li>Get immediate feedback on each answer</li>
+                    <li>View your final score and explanations</li>
+                    <li>Retry as many times as you like</li>
+                </ul>
+            </div>
+            
+            <div class="quiz-stats">
+                <div class="stat">
+                    <span class="stat-number">10,000+</span>
+                    <span class="stat-label">Quizzes Completed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">72%</span>
+                    <span class="stat-label">Average Score</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Categories</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-section" id="quiz-section">
+            <div class="quiz-header">
+                <h3 id="quiz-title">Phishing Basics Quiz</h3>
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress" id="quiz-progress-bar"></div>
+                    </div>
+                    <div class="progress-text">
+                        Question <span id="current-question">1</span> of <span id="total-questions">5</span>
+                    </div>
+                </div>
+                <div class="quiz-timer" id="quiz-timer">
+                    <i class="fas fa-clock"></i> <span id="timer-display">00:30</span>
+                </div>
+            </div>
+            
+            <div class="question-container" id="question-container">
+                <h2 class="quiz-question" id="question-text">
+                    What is phishing?
+                </h2>
+                
+                <div class="answers" id="answers-container">
+                    <div class="answer-option">
+                        <input type="radio" name="answer" id="answer-a" value="a">
+                        <label for="answer-a">A type of fishing sport</label>
+                    </div>
+                    <div class="answer-option">
+                        <input type="radio" name="answer" id="answer-b" value="b">
+                        <label for="answer-b">A cybersecurity attack that uses disguised email as a weapon</label>
+                    </div>
+                    <div class="answer-option">
+                        <input type="radio" name="answer" id="answer-c" value="c">
+                        <label for="answer-c">A computer virus that deletes files</label>
+                    </div>
+                    <div class="answer-option">
+                        <input type="radio" name="answer" id="answer-d" value="d">
+                        <label for="answer-d">A hardware failure in computers</label>
+                    </div>
+                </div>
+                
+                <div class="question-image" id="question-image">
+                    <!-- Optional image related to the question -->
+                </div>
+                
+                <div class="question-actions">
+                    <button id="submit-answer" class="btn primary-btn">Submit Answer</button>
+                </div>
+            </div>
+            
+            <div class="feedback-container" id="feedback-container">
+                <div class="feedback correct" id="correct-feedback">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Correct!</h4>
+                    <p id="correct-explanation">Phishing is indeed a cybersecurity attack that uses disguised email as a weapon. Attackers pretend to be trusted entities to steal sensitive information.</p>
+                </div>
+                
+                <div class="feedback incorrect" id="incorrect-feedback">
+                    <i class="fas fa-times-circle"></i>
+                    <h4>Incorrect</h4>
+                    <p id="incorrect-explanation">The correct answer is: A cybersecurity attack that uses disguised email as a weapon. Phishing attacks trick users into revealing sensitive information by pretending to be trustworthy sources.</p>
+                </div>
+                
+                <div class="next-action">
+                    <button id="next-question" class="btn primary-btn">Next Question</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="results-section" id="results-section">
+            <div class="results-header">
+                <h3>Quiz Results</h3>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="final-score">4</span>/<span id="max-score">5</span>
+                    </div>
+                    <div class="score-text">
+                        <span id="score-percentage">80%</span>
+                        <span id="score-message">Great job!</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-summary">
+                <h4>Summary</h4>
+                <div class="summary-stats">
+                    <div class="summary-stat">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Correct: <span id="correct-count">4</span></span>
+                    </div>
+                    <div class="summary-stat">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Incorrect: <span id="incorrect-count">1</span></span>
+                    </div>
+                    <div class="summary-stat">
+                        <i class="fas fa-clock"></i>
+                        <span>Time: <span id="completion-time">1:45</span></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-details">
+                <h4>Question Review</h4>
+                <div class="question-review" id="question-review">
+                    <!-- Question review items will be inserted here dynamically -->
+                    <div class="review-item correct">
+                        <div class="review-header">
+                            <span class="question-number">Question 1</span>
+                            <span class="result-indicator"><i class="fas fa-check-circle"></i> Correct</span>
+                        </div>
+                        <p class="review-question">What is phishing?</p>
+                        <p class="review-answer">Your answer: A cybersecurity attack that uses disguised email as a weapon</p>
+                    </div>
+                    
+                    <div class="review-item incorrect">
+                        <div class="review-header">
+                            <span class="question-number">Question 2</span>
+                            <span class="result-indicator"><i class="fas fa-times-circle"></i> Incorrect</span>
+                        </div>
+                        <p class="review-question">Which of the following is NOT a common sign of a phishing email?</p>
+                        <p class="review-answer">Your answer: Requests for personal information</p>
+                        <p class="review-correct">Correct answer: Personalized greeting with your full name</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-actions">
+                <button id="retry-quiz" class="btn secondary-btn"><i class="fas fa-redo"></i> Retry Quiz</button>
+                <button id="try-different-category" class="btn primary-btn"><i class="fas fa-list"></i> Try Different Category</button>
+                <a href="education.html" class="btn text-btn"><i class="fas fa-book"></i> Learn More in Education Hub</a>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <h3>Why Quiz Yourself?</h3>
+            <div class="tips-container">
+                <div class="tip">
+                    <i class="fas fa-brain"></i>
+                    <p>Regular testing helps reinforce cybersecurity knowledge and awareness.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-shield-alt"></i>
+                    <p>Identifying knowledge gaps helps strengthen your personal security practices.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-users"></i>
+                    <p>Share quizzes with friends and family to help protect your entire network.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-sync-alt"></i>
+                    <p>Cybersecurity threats evolve - regular quizzes keep you updated on new tactics.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-shield-alt"></i>
+                <h3>PhishShield</h3>
+                <p>Protecting you from cyber threats</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="url-inspector.html">URL Inspector</a></li>
+                    <li><a href="email-analyzer.html">Email Analyzer</a></li>
+                    <li><a href="quiz.html">Security Quiz</a></li>
+                    <li><a href="education.html">Education Hub</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="https://github.com/username/phishshield" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PhishShield. All rights reserved.</p>
+            <p>Disclaimer: This tool is for educational purposes only.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/quiz.js"></script>
+</body>
+</html>
